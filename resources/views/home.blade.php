@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+@section('title', "Antyfire System")
+
 @section('content')
 <div class="hero">
     <div class="hero__wrapper">
@@ -110,6 +112,7 @@
                     <p class="portfolio__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
                         tempora vero maiores rerum numquam in, minus provident suscipit deleniti quis repellat.</p>
                     <a href="#" class="portfolio__link">Szczególy realizacji</a>
+                    <span class="portfolio__location"></span>
                 </div>
             </div>
             <div class="portfolio__item">

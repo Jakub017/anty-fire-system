@@ -264,9 +264,10 @@ p {
 .portfolio__items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   margin-top: 3rem;
+  gap: 3rem;
 }
 .portfolio__intro {
   display: flex;
@@ -511,11 +512,12 @@ p {
 }
 
 .footer {
-  background-color: #0F0E11;
+  background-color: #090909;
 }
 .footer__wrapper {
   max-width: 1300px;
   margin: 0 auto;
+  padding: 2rem 0;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -526,27 +528,64 @@ p {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 .footer__heading {
-  color: #ccc;
-  font-size: calc(14px + 0.2rem);
+  color: #fff;
+  font-size: 14px;
   font-weight: 500;
 }
 .footer__logo {
-  max-width: 125px;
+  max-width: 100px;
 }
 .footer__text {
-  color: #fff;
+  color: #ccc;
   font-size: 14px;
 }
 .footer__list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  list-style: none;
 }
 .footer__link {
-  color: #fff;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+.footer__socials {
+  display: flex;
+  gap: 1rem;
+}
+.footer__bottom {
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-bottom: 4rem;
+  position: relative;
+}
+.footer__bottom::before {
+  position: absolute;
+  content: "";
+  width: 95%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  background-color: #ccc;
+  opacity: 0.3;
+}
+.footer__copyright {
+  color: #ccc;
+  font-size: 14px;
+}
+.footer__privacy {
+  color: #ccc;
   text-decoration: none;
   font-size: 14px;
 }
@@ -557,6 +596,9 @@ p {
   }
   .footer__column {
     width: 50%;
+    padding: 4rem;
+  }
+  .footer__bottom {
     padding: 4rem;
   }
 }
@@ -641,6 +683,9 @@ p {
   .portfolio__location {
     font-size: calc(16px - 0.2rem);
   }
+  .portfolio__items {
+    justify-content: space-between;
+  }
   .portfolio__link {
     font-size: 16px;
   }
@@ -687,16 +732,25 @@ p {
     font-size: 16px;
   }
   .footer__column {
-    width: 25%;
+    width: 20%;
     padding: 4rem;
   }
+  .footer__column:nth-of-type(1) {
+    width: 30%;
+  }
   .footer__heading {
-    font-size: calc(16px + 0.4rem);
+    font-size: calc(16px + 0.2rem);
   }
   .footer__text {
     font-size: 16px;
   }
   .footer__link {
+    font-size: 16px;
+  }
+  .footer__bottom {
+    justify-content: space-between;
+  }
+  .footer__copyright {
     font-size: 16px;
   }
   .section__subheading {
