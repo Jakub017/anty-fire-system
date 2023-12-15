@@ -11,15 +11,15 @@
                 numquam incidunt magni labore?
                 Eius a vero quos molestias quasi asperiores animi.</p>
             <div class="hero__buttons">
-                <a class="hero__button" href="#">Nasze usługi</a>
-                <a class="hero__button hero__button--empty" href="#">Kontakt z nami</a>
+                <a class="hero__button hero__button--services">Nasze usługi</a>
+                <a class="hero__button hero__button--empty hero__button--contact">Kontakt z nami</a>
             </div>
 
         </div>
     </div>
 </div>
 
-<div class="section about">
+<div id="about" class="section about">
     <div class="about__wrapper">
         <div class="about__text">
             <h2 class="about__subheading section__subheading">o nas</h2>
@@ -40,7 +40,7 @@
     </div>
 </div>
 
-<div class="section services">
+<div id="services" class="section services">
     <div class="services__wrapper">
         <h2 class="section__subheading services__subheading">usługi</h2>
         <h1 class="section__heading services__subheading">Obszary naszej działalności</h1>
@@ -95,7 +95,7 @@
     </div>
 </div>
 
-<div class="section portfolio">
+<div id="portfolio" class="section portfolio">
     <div class="portfolio__wrapper">
         <div class="portfolio__intro">
             <div class="portfolio__headings">
@@ -137,7 +137,7 @@
     </div>
 </div>
 
-<div class="section faq">
+<div id="faq" class="section faq">
     <div class="faq__wrapper">
         <img class="faq__image" src="{{asset('img/tlo2.jpg')}}" alt="">
         <div class="faq__text">
@@ -186,7 +186,7 @@
     </div>
 </div>
 
-<div class="section contact">
+<div id="contact" class="section contact">
     <div class="contact__wrapper">
         <div class="contact__text">
             <h2 class="section__subheading contact__subheading">kontakt</h2>
@@ -195,9 +195,10 @@
             <p class="contact__description">Czekamy na wiadomość od Ciebie! Nasz doświadczony zespół jest gotowy
                 odpowiedzieć na Twoje pytania i udzielić więcej informacji na temat naszej oferty.</p>
             <div class="contact__links">
-                <a href="" class="contact__link"><i class="fa-solid fa-envelope contact__icon"></i>
+                <a href="mailto:biuro@antyfiresystem.pl" class="contact__link"><i
+                        class="fa-solid fa-envelope contact__icon"></i>
                     biuro@antyfiresystem.pl</a>
-                <a href="" class="contact__link"><i class="fa-solid fa-phone contact__icon"></i>
+                <a href="tel:+48123456789" class="contact__link"><i class="fa-solid fa-phone contact__icon"></i>
                     +48 123 456 789</a>
             </div>
         </div>
