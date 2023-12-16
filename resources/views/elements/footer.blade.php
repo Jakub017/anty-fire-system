@@ -4,10 +4,6 @@
             <img src="{{asset('img/logo2.png')}}" alt="" class="footer__logo">
             <p class="footer__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam totam tenetur
                 voluptatum autem fugiat praesentium magnam! Omnis aut hic fugit qui molestiae.</p>
-            <!-- <div class="footer__socials">
-                <i class="fa-brands fa-square-instagram footer__social"></i>
-                <i class="fa-brands fa-linkedin footer__social"></i>
-            </div> -->
         </div>
         <div class="footer__column">
             <h4 class="footer__heading">Szybki Dostęp</h4>
@@ -72,7 +68,7 @@
 
     </div>
     <div class="footer__bottom">
-        <span class="footer__copyright">&copy; Antyfiresystem 2023 - Wszelkie prawa zastrzeżone.</span>
-        <!-- <a href="#" class="footer__privacy">Polityka prywatności</a> -->
+        <span class="footer__copyright">&copy; FPROTECT 2023 - Wszelkie prawa zastrzeżone.</span>
+        <a href="#" class="footer__privacy">Polityka prywatności</a>
     </div>
 </div>

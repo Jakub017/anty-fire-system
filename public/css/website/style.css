@@ -622,6 +622,12 @@ p {
   border-radius: 1.2rem;
   max-width: 550px;
 }
+.contact__input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .contact__input {
   padding: 1rem;
   border: none;
@@ -642,11 +648,44 @@ p {
 .contact__input::placeholder {
   color: #313131;
 }
+.contact__error {
+  color: red;
+  font-size: 14px;
+}
 .contact__group {
   display: flex;
   width: 100%;
   gap: 2rem;
   flex-wrap: wrap;
+}
+.contact__group--checkbox {
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.contact__checkbox {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.contact__checkbox:hover {
+  border-color: #B80000;
+}
+.contact__privacy-link {
+  color: #B80000;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.contact__privacy-link:hover {
+  text-decoration: underline;
+}
+.contact__label {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 0.5rem;
 }
 .contact__button {
   background-color: #B80000;
@@ -922,6 +961,9 @@ p {
     flex-wrap: nowrap;
   }
   .contact__button {
+    font-size: 16px;
+  }
+  .contact__label {
     font-size: 16px;
   }
   .footer__column {

@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', "Antyfire System")
+@section('title', "Strona główna - FPROTECT")
 
 @section('content')
 <div class="hero">
@@ -45,52 +45,14 @@
         <h2 class="section__subheading services__subheading">usługi</h2>
         <h1 class="section__heading services__subheading">Obszary naszej działalności</h1>
         <div class="services__items">
+            @foreach($services as $service)
             <div class="services__item">
-                <img class="services__image" src="{{asset('img/audit.png')}}">
-                <h3 class="services__title">Audyt Bezpieczeństwa Budynku</h3>
-                <p class="services__description">Analiza ryzyka, kontrola zabezpieczeń i doradztwo w zakresie
-                    bezpieczeństwa budynku. Zapewniamy spokój i zgodność z normami.</p>
-                <a href="#" class="services__link">Dowiedz się więcej</a>
+                <img class="services__image" src="{{Voyager::image($service->image)}}">
+                <h3 class="services__title">{{ $service->name }}</h3>
+                <p class="services__description">{{ $service->excerpt }}</p>
+                <a href="{{route('service', $service->slug)}}" class="services__link">Dowiedz się więcej</a>
             </div>
-            <div class="services__item">
-                <img class="services__image" src="{{asset('img/alarm.png')}}">
-                <h3 class="services__title">Instalacja Systemów Alarmowych</h3>
-                <p class="services__description">Projektowanie i montaż nowoczesnych systemów alarmowych. Ochrona przed
-                    włamaniem i innymi zagrożeniami. Działamy szybko i sprawnie.
-                </p>
-                <a href="#" class="services__link">Dowiedz się więcej</a>
-            </div>
-            <div class="services__item">
-                <img class="services__image" src="{{asset('img/tools.png')}}">
-                <h3 class="services__title">Serwis Sprzętu Przeciwpożarowego</h3>
-                <p class="services__description">Kompleksowa obsługa i konserwacja sprzętu przeciwpożarowego. Gwarancja
-                    sprawności i niezawodności. Ochrona życia i mienia w każdych warunkach.
-                </p>
-                <a href="#" class="services__link">Dowiedz się więcej</a>
-            </div>
-            <div class="services__item">
-                <img class="services__image" src="{{asset('img/building.png')}}">
-                <h3 class="services__title">Montaż Zabezpieczeń Budynków
-                </h3>
-                <p class="services__description">Skuteczne zabezpieczenia okien, drzwi i ścian. Ochrona przed włamaniem
-                    i uszkodzeniami. Doradztwo i profesjonalny montaż. Twój budynek bezpieczny jak nigdy dotąd.
-                </p>
-                <a href="#" class="services__link">Dowiedz się więcej</a>
-            </div>
-            <div class="services__item">
-                <img class="services__image" src="{{asset('img/training.png')}}">
-                <h3 class="services__title">Szkolenia z Bezpieczeństwa</h3>
-                <p class="services__description">Praktyczne kursy z zakresu bezpieczeństwa pożarowego. Uczymy jak
-                    reagować w sytuacjach zagrożenia. Zwiększ swoją świadomość i bądź zawsze gotów.</p>
-                <a href="#" class="services__link">Dowiedz się więcej</a>
-            </div>
-            <div class="services__item">
-                <img class="services__image" src="{{asset('img/smart.png')}}">
-                <h3 class="services__title">Inteligentna Automatyka Budynku</h3>
-                <p class="services__description">Systemy zarządzania budynkiem, automatyzacja i kontrola dostępu.
-                    Nowoczesne technologie dla komfortu i bezpieczeństwa.</p>
-                <a href="#" class="services__link">Dowiedz się więcej</a>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -105,34 +67,18 @@
             <a href="#" class="portfolio__all">Wszystkie realizacje</a>
         </div>
         <div class="portfolio__items">
+            @foreach($realizations as $realization)
             <div class="portfolio__item">
-                <img src="{{asset('img/realizacja.jpg')}}" alt="" class="portfolio__image">
+                <img src="{{Voyager::image($realization->main_image)}}" alt="" class="portfolio__image">
                 <div class="portfolio__info">
-                    <h3 class="portfolio__name">Nazwa realizacji</h3>
-                    <p class="portfolio__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                        tempora vero maiores rerum numquam in, minus provident suscipit deleniti quis repellat.</p>
-                    <a href="#" class="portfolio__link">Szczególy realizacji</a>
+                    <h3 class="portfolio__name">{{ $realization->name }}</h3>
+                    <p class="portfolio__description">{{ $realization->excerpt }}</p>
+                    <a href="{{route('realization', $realization->slug)}}" class="portfolio__link">Szczególy
+                        realizacji</a>
                     <span class="portfolio__location"></span>
                 </div>
             </div>
-            <div class="portfolio__item">
-                <img src="{{asset('img/realizacja.jpg')}}" alt="" class="portfolio__image">
-                <div class="portfolio__info">
-                    <h3 class="portfolio__name">Nazwa realizacji</h3>
-                    <p class="portfolio__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                        tempora vero maiores rerum numquam in, minus provident suscipit deleniti quis repellat.</p>
-                    <a href="#" class="portfolio__link">Szczególy realizacji</a>
-                </div>
-            </div>
-            <div class="portfolio__item">
-                <img src="{{asset('img/realizacja.jpg')}}" alt="" class="portfolio__image">
-                <div class="portfolio__info">
-                    <h3 class="portfolio__name">Nazwa realizacji</h3>
-                    <p class="portfolio__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                        tempora vero maiores rerum numquam in, minus provident suscipit deleniti quis repellat.</p>
-                    <a href="#" class="portfolio__link">Szczególy realizacji</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -144,43 +90,16 @@
             <h2 class="section__subheading">faq</h2>
             <h1 class="section__heading">Najczęściej zadawane pytania</h1>
             <div class="faq__questions">
+                @foreach($questions as $index => $question)
                 <div class="faq__block">
                     <div class="faq__title">
-                        <h3 class="faq__question">Jakie technologie stosujecie w nowoczesnych systemach alarmowych
-                            przeciwpożarowych?</h3>
-                        <i class="fa-solid fa-arrow-right faq__button"></i>
+                        <h3 class="faq__question">{{ $question->question }}</h3>
+                        <i
+                            class="fa-solid fa-arrow-right faq__button {{ $index == 1 ? 'faq__button--active' : '' }} "></i>
                     </div>
-                    <p class="faq__answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, neque ab
-                        itaque deserunt quidem quod architecto totam facilis eveniet assumenda similique.</p>
+                    <p class="faq__answer {{ $index == 1 ? 'faq__answer--active' : '' }}">{{ $question->answer }}</p>
                 </div>
-                <div class="faq__block">
-                    <div class="faq__title">
-                        <h3 class="faq__question">Jakie są standardy i regulacje, z którymi są zgodne Wasze systemy
-                            zabezpieczeń budynków?</h3>
-                        <i class="fa-solid fa-arrow-right faq__button faq__button--active"></i>
-                    </div>
-                    <p class="faq__answer faq__answer--active">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Temporibus, neque ab
-                        itaque deserunt quidem quod architecto totam facilis eveniet assumenda similique.</p>
-                </div>
-                <div class="faq__block">
-                    <div class="faq__title">
-                        <h3 class="faq__question">Czy oferujecie szkolenia z zakresu obsługi i konserwacji sprzętu
-                            przeciwpożarowego?</h3>
-                        <i class="fa-solid fa-arrow-right faq__button"></i>
-                    </div>
-                    <p class="faq__answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, neque ab
-                        itaque deserunt quidem quod architecto totam facilis eveniet assumenda similique.</p>
-                </div>
-                <div class="faq__block">
-                    <div class="faq__title">
-                        <h3 class="faq__question">Czy oferujecie szkolenia z zakresu obsługi i konserwacji sprzętu
-                            przeciwpożarowego?</h3>
-                        <i class="fa-solid fa-arrow-right faq__button"></i>
-                    </div>
-                    <p class="faq__answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, neque ab
-                        itaque deserunt quidem quod architecto totam facilis eveniet assumenda similique.</p>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -195,22 +114,47 @@
             <p class="contact__description">Czekamy na wiadomość od Ciebie! Nasz doświadczony zespół jest gotowy
                 odpowiedzieć na Twoje pytania i udzielić więcej informacji na temat naszej oferty.</p>
             <div class="contact__links">
-                <a href="mailto:biuro@antyfiresystem.pl" class="contact__link"><i
+                <a href="mailto:{{ setting('kontakt.email') }}" class="contact__link"><i
                         class="fa-solid fa-envelope contact__icon"></i>
-                    biuro@antyfiresystem.pl</a>
-                <a href="tel:+48123456789" class="contact__link"><i class="fa-solid fa-phone contact__icon"></i>
-                    +48 123 456 789</a>
+                    {{ setting('kontakt.email') }}</a>
+                <a href="tel:{{ setting('kontakt.phone') }}" class="contact__link"><i
+                        class="fa-solid fa-phone contact__icon"></i>
+                    {{ setting('kontakt.phone') }}</a>
             </div>
         </div>
-        <form action="#" class="contact__form">
+        <form method="POST" action="{{route('contact.send')}}" class="contact__form">
             @csrf
-            <input name="name" type="text" class="contact__input" placeholder="Imię i nazwisko">
-            <div class="contact__group">
-                <input name="email" type="email" class="contact__input" placeholder="Adres email">
-                <input name="phone" type="text" class="contact__input" placeholder="Numer telefonu">
+            <div class="contact__input-group">
+                <input name="name" type="text" class="contact__input" placeholder="Imię i nazwisko">
+                @error('name')
+                <span class="contact__error">{{ $message }}</span>
+                @enderror
             </div>
+            <div class="contact__group">
+                <div class="contact__input-group">
+                    <input name="email" type="email" class="contact__input" placeholder="Adres email">
+                    @error('email')
+                    <span class="contact__error">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="contact__input-group">
+                    <input name="phone" type="text" class="contact__input" placeholder="Numer telefonu">
+                    @error('phone')
+                    <span class="contact__error">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+
             <textarea name="message" id="message" class="contact__input contact__input--textarea"
                 placeholder="Treść wiadomości"></textarea>
+            <div class="contact__group contact__group--checkbox">
+                <input class="contact__checkbox" type="checkbox" name="privacy_policy">
+                <label for="privacy_policy" class="contact__label">Zapoznałem się z treścią <a
+                        class="contact__privacy-link" href="#">polityki
+                        prywatności</a> i
+                    wyrażam zgodę na
+                    przetwarzanie moich danych osobowych.</label>
+            </div>
             <button type="submit" class="contact__button">Wyślij wiadomość</button>
         </form>
     </div>
