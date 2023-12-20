@@ -1,7 +1,7 @@
 <nav class="nav">
     <div class="nav__wrapper">
         <a href="{{route('home')}}">
-            <img src="{{asset('img/logo2.png')}}" alt="" class="nav__logo">
+            <img src="{{asset('storage/'.setting('strona.logo'))}}" alt="" class="nav__logo">
         </a>
 
         <ul class="nav__menu">
@@ -30,7 +30,7 @@
 <nav class="mobile-nav">
     <div class="mobile-nav__wrapper">
         <a href="{{route('home')}}">
-            <img src="{{asset('img/logo2.png')}}" alt="" class="mobile-nav__logo">
+            <img src="{{asset('storage/'.setting('strona.logo'))}}" alt="" class="mobile-nav__logo">
         </a>
         <div class="mobile-nav__haburger-wrapper">
             <img src="{{asset('img/hamburger.png')}}" alt="" class="mobile-nav__hamburger-icon">
@@ -38,7 +38,7 @@
 
         <div class="mobile-nav__menu">
             <img src="{{asset('img/close.png')}}" alt="" class="mobile-nav__close">
-            <img src="{{asset('img/logo2.png')}}" alt="" class="mobile-nav__logo">
+            <img src="{{asset('storage/'.setting('strona.logo'))}}" alt="" class="mobile-nav__logo">
             <ul class="mobile-nav__menu-wrapper">
                 <li class="mobile-nav__item">
                     <a href="{{route('home')}}" class="mobile-nav__link">Strona główna</a>

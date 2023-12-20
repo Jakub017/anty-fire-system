@@ -20,7 +20,16 @@ class PagesController extends Controller
         return view('service', compact('service'));
     }
 
+    public function realizations() {
+        $realizations = Realization::orderBy('created_at', 'asc')->get();
+        return view('realizations', compact('realizations'));
+    }
+
     public function realization(Realization $realization) {
         return view('realization', compact('realization'));
+    }
+
+    public function privacy() {
+        return view('privacy');
     }
 }

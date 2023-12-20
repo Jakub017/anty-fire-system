@@ -205,8 +205,6 @@ $desktop-text: 16px;
     }
 }
 
-
-
 // Hero section
 .hero {
     background-color: $placeholder-color;
@@ -450,6 +448,11 @@ $desktop-text: 16px;
     padding-top: 3rem;
     padding-bottom: 3rem;
 
+    &--page {
+        padding-top: calc(3rem + 100px);
+        padding-bottom: 4rem;
+    }
+
     &__wrapper {
         max-width: 1300px;
         margin: 0 auto;
@@ -494,7 +497,7 @@ $desktop-text: 16px;
 
     &__item {
         width: 100%;
-        max-width: 350px;
+        max-width: 400px;
         position: relative;
         border-radius: 0.8rem;
         display: flex;
@@ -762,6 +765,24 @@ $desktop-text: 16px;
         font-size: $mobile-text;
     }
 
+    &__message-text {
+        font-size: $mobile-text;
+        padding: 1rem;
+        border-radius: 0.5rem;
+
+        &--success {
+            color: #fff;
+            background-color: #00ab44;
+        }
+
+        &--error {
+            color: #fff;
+            background-color: #CC0000;
+        }
+    }
+
+
+
     &__group {
         display: flex;
         width: 100%;
@@ -929,6 +950,239 @@ $desktop-text: 16px;
     }
 }
 
+// Realization page
+.realization {
+    padding-top: calc(3rem + 100px);
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        max-width: 850px;
+    }
+
+    &__main-image {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        max-height: 500px;
+    }
+
+    &__name {
+        font-size: calc($mobile-text + 0.6rem);
+    }
+
+    &__excerpt {
+        font-size: $mobile-text;
+        line-height: 1.5;
+        letter-spacing: 0.03rem;
+        color: #313131;
+        font-weight: 500;
+    }
+
+    &__main-gallery {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &__heading {
+        font-size: calc($mobile-text + 0.2rem);
+    }
+
+    &__body {
+        font-size: $mobile-text;
+        line-height: 1.5;
+        letter-spacing: 0.03rem;
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        h6,
+        h5,
+        h4,
+        h3,
+        h2,
+        h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__sidebar {
+        width: 100%;
+        max-width: 850px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: flex-start;
+    }
+
+    &__block {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 350px;
+        padding: 2.5rem;
+        border-radius: 0.5rem;
+        background-color: $placeholder-color;
+        height: fit-content;
+    }
+
+    &__title {
+        font-size: calc($mobile-text + 0.2rem);
+        letter-spacing: 0.03rem;
+        position: relative;
+        width: fit-content;
+        margin-bottom: 1rem;
+
+        &::after {
+            content: "";
+            width: 45px;
+            height: 3px;
+            position: absolute;
+            bottom: -0.7rem;
+            left: 0;
+            background-color: $main-color;
+        }
+    }
+
+    &__detail {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: $mobile-text;
+        margin-top: 0.8rem;
+    }
+
+    &__icon {
+        width: 20px;
+    }
+
+    &__text {
+        font-size: $mobile-text;
+        line-height: 1.5;
+        letter-spacing: 0.03rem;
+    }
+
+    &__contact {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &__contact-icon {
+        width: 42px;
+    }
+
+    &__contact-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    &__contact-title {
+        font-size: $mobile-text;
+        font-weight: 600;
+        color: #000;
+    }
+
+    &__contact-link {
+        font-size: $mobile-text;
+        color: $main-color;
+        font-weight: 600;
+        text-decoration: none;
+        width: fit-content;
+        position: relative;
+    }
+
+    &__gallery {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &__gallery-image {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        max-height: 250px;
+    }
+}
+
+// Privacy policy page
+.privacy {
+    padding-top: calc(3rem + 100px);
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+
+    &__title {
+        font-size: calc($mobile-text + 0.6rem);
+        margin-bottom: 2.5rem;
+        position: relative;
+        width: fit-content;
+
+        &::after {
+            content: "";
+            width: 50%;
+            height: 3px;
+            position: absolute;
+            bottom: -0.7rem;
+            left: 0;
+            background-color: $main-color;
+        }
+    }
+
+    &__heading {
+        font-size: calc($mobile-text + 0.2rem);
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        font-size: $mobile-text;
+        line-height: 1.5;
+        letter-spacing: 0.03rem;
+        margin-bottom: 1rem;
+    }
+
+    &__list {
+        padding-left: 2rem;
+
+        &--empty {
+            list-style: none;
+        }
+    }
+
+    &__link {
+        color: $main-color;
+        font-weight: 600;
+        text-decoration: none;
+    }
+}
+
 // Media queries
 @media(min-width: 768px) {
     .mobile-nav {
@@ -970,8 +1224,6 @@ $desktop-text: 16px;
 }
 
 @media(min-width: 1024px) {
-
-
     .hero {
         height: 90vh;
 
@@ -1055,6 +1307,11 @@ $desktop-text: 16px;
         padding-top: 5rem;
         padding-bottom: 5rem;
 
+        &--page {
+            padding-top: calc(5rem + 100px);
+            padding-bottom: 5rem;
+        }
+
         &__intro {
             flex-direction: row;
             justify-content: space-between;
@@ -1128,6 +1385,10 @@ $desktop-text: 16px;
             font-size: $desktop-text;
         }
 
+        &__wrapper {
+            justify-content: space-between;
+        }
+
         &__form {
             width: 50%;
             margin-top: 0;
@@ -1158,6 +1419,11 @@ $desktop-text: 16px;
         &__label {
             font-size: $desktop-text;
         }
+
+        &__message-text {
+            font-size: calc($desktop-text - 0.1rem);
+            line-height: 1.5;
+        }
     }
 
     .footer {
@@ -1168,6 +1434,10 @@ $desktop-text: 16px;
             &:nth-of-type(1) {
                 width: 30%;
             }
+        }
+
+        &__wrapper {
+            justify-content: space-between;
         }
 
         &__heading {
@@ -1189,6 +1459,10 @@ $desktop-text: 16px;
         &__copyright {
             font-size: $desktop-text;
         }
+
+        &__privacy {
+            font-size: $desktop-text;
+        }
     }
 
     .section {
@@ -1201,19 +1475,87 @@ $desktop-text: 16px;
             max-width: 600px;
         }
     }
+
+    .realization {
+        flex-direction: row;
+        justify-content: space-between;
+
+        &__name {
+            font-size: calc($desktop-text + 0.6rem);
+        }
+
+        &__excerpt {
+            font-size: $desktop-text;
+        }
+
+        &__heading {
+            font-size: calc($desktop-text + 0.2rem);
+        }
+
+        &__body {
+            font-size: $desktop-text;
+        }
+
+        &__sidebar {
+            max-width: 350px;
+            flex-direction: column;
+        }
+
+        &__title {
+            font-size: calc($desktop-text + 0.3rem);
+        }
+
+        &__text {
+            font-size: calc($desktop-text - 0.1rem);
+        }
+
+        &__contact-title,
+        &__contact-link {
+            font-size: calc($desktop-text - 0.1rem);
+        }
+
+    }
+
+    .privacy {
+        &__title {
+            font-size: calc($desktop-text + 0.8rem);
+            margin-bottom: 3rem;
+        }
+
+        &__heading {
+            font-size: calc($desktop-text + 0.2rem);
+            margin-top: 2rem;
+        }
+
+        &__text {
+            font-size: $desktop-text;
+        }
+    }
 }
 
 @media(min-width: 1150px) {
-
-    .portfolio {
-        &__items {
-            justify-content: space-between;
-        }
-    }
-
     .faq {
         &__image {
             width: 40%;
         }
     }
+}
+
+@media(min-width: 1320px) {
+    .portfolio {
+        &__items {
+            justify-content: space-between;
+        }
+    }
+}
+
+.mySwiper .swiper-slide {
+    position: relative;
+    opacity: 0.5;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
 }

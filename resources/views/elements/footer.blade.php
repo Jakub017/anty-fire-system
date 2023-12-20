@@ -1,9 +1,8 @@
 <div class="footer">
     <div class="footer__wrapper">
         <div class="footer__column">
-            <img src="{{asset('img/logo2.png')}}" alt="" class="footer__logo">
-            <p class="footer__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam totam tenetur
-                voluptatum autem fugiat praesentium magnam! Omnis aut hic fugit qui molestiae.</p>
+            <img src="{{asset('storage/'.setting('strona.logo'))}}" alt="" class="footer__logo">
+            <p class="footer__text">{{ setting('strona.footer_text') }}</p>
         </div>
         <div class="footer__column">
             <h4 class="footer__heading">Szybki Dostęp</h4>
@@ -69,6 +68,6 @@
     </div>
     <div class="footer__bottom">
         <span class="footer__copyright">&copy; FPROTECT 2023 - Wszelkie prawa zastrzeżone.</span>
-        <a href="#" class="footer__privacy">Polityka prywatności</a>
+        <a href="{{route('privacy')}}" target="_blank" class="footer__privacy">Polityka prywatności</a>
     </div>
 </div>

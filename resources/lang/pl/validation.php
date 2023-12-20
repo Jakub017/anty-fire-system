@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'accepted'             => ':attribute musi zostać zaakceptowany.',
+    'accepted'             => ':attribute musi zostać zaakceptowana.',
     'active_url'           => ':attribute jest nieprawidłowym adresem URL.',
     'after'                => ':attribute musi być datą późniejszą od :date.',
     'after_or_equal'       => ':attribute musi być datą nie wcześniejszą niż :date.',
@@ -145,5 +145,6 @@ return [
         'phone' => 'Numer telefonu',
         'email' => 'Adres e-mail',
         'password' => 'Hasło',
+        'privacy_policy' => 'Polityka prywatności',
     ],
 ];

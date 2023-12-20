@@ -6,10 +6,8 @@
 <div class="hero">
     <div class="hero__wrapper">
         <div class="hero__text">
-            <h1 class="hero__heading">Lorem ipsum dolor sit amet sit Lorem</h1>
-            <p class="hero__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam doloribus
-                numquam incidunt magni labore?
-                Eius a vero quos molestias quasi asperiores animi.</p>
+            <h1 class="hero__heading">{{ setting('strona.hero_title') }}</h1>
+            <p class="hero__description">{{ setting('strona.hero_text') }}</p>
             <div class="hero__buttons">
                 <a class="hero__button hero__button--services">Nasze usługi</a>
                 <a class="hero__button hero__button--empty hero__button--contact">Kontakt z nami</a>
@@ -50,7 +48,7 @@
                 <img class="services__image" src="{{Voyager::image($service->image)}}">
                 <h3 class="services__title">{{ $service->name }}</h3>
                 <p class="services__description">{{ $service->excerpt }}</p>
-                <a href="{{route('service', $service->slug)}}" class="services__link">Dowiedz się więcej</a>
+                <!-- <a href="{{route('service', $service->slug)}}" class="services__link">Dowiedz się więcej</a> -->
             </div>
             @endforeach
         </div>
@@ -64,7 +62,7 @@
                 <h2 class="section__subheading portfolio__subheading">realizacje</h2>
                 <h1 class="section__heading portfolio__subheading">Nasze portfolio</h1>
             </div>
-            <a href="#" class="portfolio__all">Wszystkie realizacje</a>
+            <a href="{{route('realizations')}}" class="portfolio__all">Wszystkie realizacje</a>
         </div>
         <div class="portfolio__items">
             @foreach($realizations as $realization)
@@ -122,23 +120,27 @@
                     {{ setting('kontakt.phone') }}</a>
             </div>
         </div>
-        <form method="POST" action="{{route('contact.send')}}" class="contact__form">
+        <form method="POST" action="{{route('contact.send')}}#contact" class="contact__form">
             @csrf
+
             <div class="contact__input-group">
-                <input name="name" type="text" class="contact__input" placeholder="Imię i nazwisko">
+                <input name="name" type="text" class="contact__input" placeholder="Imię i nazwisko"
+                    value="{{old('name')}}">
                 @error('name')
                 <span class="contact__error">{{ $message }}</span>
                 @enderror
             </div>
             <div class="contact__group">
                 <div class="contact__input-group">
-                    <input name="email" type="email" class="contact__input" placeholder="Adres email">
+                    <input name="email" type="email" class="contact__input" placeholder="Adres email"
+                        value="{{old('email')}}">
                     @error('email')
                     <span class="contact__error">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="contact__input-group">
-                    <input name="phone" type="text" class="contact__input" placeholder="Numer telefonu">
+                    <input name="phone" type="text" class="contact__input" placeholder="Numer telefonu"
+                        value="{{old('phone')}}">
                     @error('phone')
                     <span class="contact__error">{{ $message }}</span>
                     @enderror
@@ -146,16 +148,24 @@
             </div>
 
             <textarea name="message" id="message" class="contact__input contact__input--textarea"
-                placeholder="Treść wiadomości"></textarea>
+                placeholder="Treść wiadomości">{{old('message')}}</textarea>
             <div class="contact__group contact__group--checkbox">
                 <input class="contact__checkbox" type="checkbox" name="privacy_policy">
-                <label for="privacy_policy" class="contact__label">Zapoznałem się z treścią <a
-                        class="contact__privacy-link" href="#">polityki
+                <label for="privacy_policy" class="contact__label">Zapoznałem/am się z treścią <a
+                        class="contact__privacy-link" target="_blank" href="{{route('privacy')}}">polityki
                         prywatności</a> i
                     wyrażam zgodę na
                     przetwarzanie moich danych osobowych.</label>
             </div>
+            @error('privacy_policy')
+            <span class="contact__error">{{ $message }}</span>
+            @enderror
             <button type="submit" class="contact__button">Wyślij wiadomość</button>
+            @if(session('success'))
+            <div class="contact__message contact__message--success">
+                <p class="contact__message-text contact__message-text--success">{{session('success')}}</p>
+            </div>
+            @endif
         </form>
     </div>
 </div>

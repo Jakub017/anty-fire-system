@@ -19,7 +19,9 @@ use App\Http\Controllers\ContactController;
 Route::controller(PagesController::class)->group(function() {
     Route::get('/', 'home')->name('home');
     Route::get('/usluga/{service:slug}', 'service')->name('service');
-    Route::get('/realizacja/{realization:slug}', 'realization')->name('realization');
+    Route::get('/realizacje', 'realizations')->name('realizations');
+    Route::get('/realizacje/{realization:slug}', 'realization')->name('realization');
+    Route::get('/polityka-prywatnosci', 'privacy')->name('privacy');
 });
 
 Route::controller(ContactController::class)->group(function() {
