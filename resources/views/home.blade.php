@@ -10,14 +10,14 @@
             <p class="hero__description">{{ setting('strona.hero_text') }}</p>
             <div class="hero__buttons">
                 <a class="hero__button hero__button--services">Nasze usługi</a>
-                <a class="hero__button hero__button--empty hero__button--contact">Kontakt z nami</a>
+                <a class="hero__button hero__button--empty hero__button--contact">Napisz do nas</a>
             </div>
 
         </div>
     </div>
 </div>
 
-<div id="about" class="section about">
+<div id="o-nas" class="section about">
     <div class="about__wrapper">
         <div class="about__text">
             <h2 class="about__subheading section__subheading">o nas</h2>
@@ -32,30 +32,31 @@
                 zabezpieczeń budynków. Nasza misja to zapewnienie najwyższego poziomu bezpieczeństwa, zgodnie z
                 najnowszymi standardami i regulacjami. Pracujemy z pasją i zaangażowaniem, aby każdy nasz klient czuł
                 się bezpiecznie i pewnie.</p>
-            <a class="about__link" href="#">Dowiedz się więcej</a>
+            <!-- <a class="about__link" href="#">Dowiedz się więcej</a> -->
         </div>
         <img class="about__image" src="{{asset('img/tlo2.jpg')}}" alt="">
     </div>
 </div>
 
-<div id="services" class="section services">
+<div id="uslugi" class="section services">
     <div class="services__wrapper">
-        <h2 class="section__subheading services__subheading">usługi</h2>
+        <h2 class="section__subheading services__subheading">Usługi</h2>
         <h1 class="section__heading services__subheading">Obszary naszej działalności</h1>
         <div class="services__items">
             @foreach($services as $service)
             <div class="services__item">
-                <img class="services__image" src="{{Voyager::image($service->image)}}">
-                <h3 class="services__title">{{ $service->name }}</h3>
-                <p class="services__description">{{ $service->excerpt }}</p>
-                <!-- <a href="{{route('service', $service->slug)}}" class="services__link">Dowiedz się więcej</a> -->
+                <div class="services__body">
+                    <img class="services__image" src="{{Voyager::image($service->image)}}">
+                    <h3 class="services__title">{{ $service->name }}</h3>
+                    <p class="services__description">{{ $service->excerpt }}</p>
+                </div>
             </div>
             @endforeach
         </div>
     </div>
 </div>
 
-<div id="portfolio" class="section portfolio">
+<div id="realizacje" class="section portfolio">
     <div class="portfolio__wrapper">
         <div class="portfolio__intro">
             <div class="portfolio__headings">
@@ -73,7 +74,6 @@
                     <p class="portfolio__description">{{ $realization->excerpt }}</p>
                     <a href="{{route('realization', $realization->slug)}}" class="portfolio__link">Szczególy
                         realizacji</a>
-                    <span class="portfolio__location"></span>
                 </div>
             </div>
             @endforeach
@@ -103,7 +103,7 @@
     </div>
 </div>
 
-<div id="contact" class="section contact">
+<div id="kontakt" class="section contact">
     <div class="contact__wrapper">
         <div class="contact__text">
             <h2 class="section__subheading contact__subheading">kontakt</h2>
@@ -146,9 +146,10 @@
                     @enderror
                 </div>
             </div>
-
-            <textarea name="message" id="message" class="contact__input contact__input--textarea"
-                placeholder="Treść wiadomości">{{old('message')}}</textarea>
+            <div class="contact__input-group">
+                <textarea name="message" id="message" class="contact__input contact__input--textarea"
+                    placeholder="Treść wiadomości">{{old('message')}}</textarea>
+            </div>
             <div class="contact__group contact__group--checkbox">
                 <input class="contact__checkbox" type="checkbox" name="privacy_policy">
                 <label for="privacy_policy" class="contact__label">Zapoznałem/am się z treścią <a

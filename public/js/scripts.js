@@ -1,3 +1,4 @@
+// FAQ section
 const questions = [...document.querySelectorAll('.faq__title')];
 const answers = [...document.querySelectorAll('.faq__answer')];
 const arrows = [...document.querySelectorAll('.faq__button')]
@@ -9,37 +10,6 @@ questions.forEach((question, i) => {
     })
 })
 
-// Desktop naviagtion
-const options = [...document.querySelectorAll('.nav__link')];
-const aboutSection = document.querySelector('#about');
-const servicesSection = document.querySelector('#services');
-const portfolioSection = document.querySelector('#portfolio');
-const faqSection = document.querySelector('#faq');
-const contactSection = document.querySelector('#contact');
-
-
-options.forEach(option => {
-    option.addEventListener('click', function () {
-        let offsetPosition;
-
-        if (option.classList.contains('nav__link--about')) {
-            offsetPosition = aboutSection.offsetTop - 200;
-        } else if (option.classList.contains('nav__link--services')) {
-            offsetPosition = servicesSection.offsetTop - 100;
-        } else if (option.classList.contains('nav__link--portfolio')) {
-            offsetPosition = portfolioSection.offsetTop - 100;
-        } else if (option.classList.contains('nav__link--faq')) {
-            offsetPosition = faqSection.offsetTop - 100;
-        } else if (option.classList.contains('nav__link--contact')) {
-            offsetPosition = contactSection.offsetTop - 100;
-        }
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
-    });
-});
 
 
 // Mobile navigation
@@ -48,43 +18,33 @@ const mobileMenu = document.querySelector('.mobile-nav__menu');
 const mobileOptions = [...document.querySelectorAll('.mobile-nav__link')];
 const closeBtn = document.querySelector('.mobile-nav__close');
 
-mobileOptions.forEach(option => {
-    option.addEventListener('click', function () {
-        let offsetPosition;
-
-        if (option.classList.contains('mobile-nav__link--about')) {
-            offsetPosition = aboutSection.offsetTop - 140;
-        } else if (option.classList.contains('mobile-nav__link--services')) {
-            offsetPosition = servicesSection.offsetTop - 100;
-        } else if (option.classList.contains('mobile-nav__link--portfolio')) {
-            offsetPosition = portfolioSection.offsetTop - 100;
-        } else if (option.classList.contains('mobile-nav__link--faq')) {
-            offsetPosition = faqSection.offsetTop - 100;
-        } else if (option.classList.contains('mobile-nav__link--contact')) {
-            offsetPosition = contactSection.offsetTop - 100;
-        }
-
-        window.scrollTo({
-            top: offsetPosition,
-            behavior: "smooth"
-        });
-
-        mobileMenu.classList.remove('mobile-nav__menu--active');
-    });
-});
-
 
 hamburgerBtn.addEventListener('click', function () {
     mobileMenu.classList.toggle('mobile-nav__menu--active');
+    closeBtn.classList.toggle('mobile-nav__close--active');
+    hamburgerBtn.classList.toggle('mobile-nav__hamburger-icon--hidden');
 });
 
 closeBtn.addEventListener('click', function () {
     mobileMenu.classList.remove('mobile-nav__menu--active');
+    closeBtn.classList.remove('mobile-nav__close--active');
+    hamburgerBtn.classList.remove('mobile-nav__hamburger-icon--hidden');
+});
+
+mobileOptions.forEach(option => {
+    option.addEventListener('click', function () {
+        mobileMenu.classList.remove('mobile-nav__menu--active');
+        closeBtn.classList.remove('mobile-nav__close--active');
+        hamburgerBtn.classList.remove('mobile-nav__hamburger-icon--hidden');
+    });
 });
 
 
+// Hero buttons
 const heroServices = document.querySelector('.hero__button--services');
 const herContact = document.querySelector('.hero__button--contact');
+const servicesSection = document.querySelector('#uslugi');
+const contactSection = document.querySelector('#kontakt');
 
 heroServices.addEventListener('click', function () {
     window.scrollTo({
@@ -99,3 +59,78 @@ herContact.addEventListener('click', function () {
         behavior: "smooth"
     });
 });
+
+
+// Services section
+const services = [...document.querySelectorAll('.services__item')];
+
+const servicesObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('services__item--active');
+        observer.unobserve(entry.target);
+    });
+}, {
+    threshold: 1
+});
+
+services.forEach(service => {
+    servicesObserver.observe(service);
+});
+
+
+
+// Realizations section
+const realizations = [...document.querySelectorAll('.portfolio__item')];
+
+const realizationsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('portfolio__item--active');
+        observer.unobserve(entry.target);
+    });
+}, {
+    threshold: 1
+});
+
+realizations.forEach(realization => {
+    realizationsObserver.observe(realization);
+});
+
+
+// Faq questions
+const faqQuestions = [...document.querySelectorAll('.faq__block')];
+
+const faqObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('faq__block--active');
+        observer.unobserve(entry.target);
+    });
+}, {
+    threshold: 1
+});
+
+faqQuestions.forEach(question => {
+    faqObserver.observe(question);
+});
+
+
+// About section 
+const aboutText = document.querySelector('.about__text');
+const aboutImage = document.querySelector('.about__image');
+
+const aboutObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        aboutText.classList.add('about__text--active');
+        aboutImage.classList.add('about__image--active');
+        observer.unobserve(entry.target);
+    });
+}, {
+    threshold: 0.5
+});
+
+
+aboutObserver.observe(aboutText);
+aboutObserver.observe(aboutImage);

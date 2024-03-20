@@ -67,7 +67,7 @@
 
     </div>
     <div class="footer__bottom">
-        <span class="footer__copyright">&copy; FPROTECT 2023 - Wszelkie prawa zastrzeżone.</span>
+        <span class="footer__copyright">&copy; FPROTECT 2024 - Wszelkie prawa zastrzeżone.</span>
         <a href="{{route('privacy')}}" target="_blank" class="footer__privacy">Polityka prywatności</a>
     </div>
 </div>

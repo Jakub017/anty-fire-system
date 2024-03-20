@@ -13,7 +13,7 @@
         </div>
         <div class="portfolio__items">
             @foreach($realizations as $realization)
-            <div class="portfolio__item">
+            <div class="portfolio__item portfolio__item--active">
                 <img src="{{Voyager::image($realization->main_image)}}" alt="" class="portfolio__image">
                 <div class="portfolio__info">
                     <h3 class="portfolio__name">{{ $realization->name }}</h3>

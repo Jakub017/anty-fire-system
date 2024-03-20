@@ -22,6 +22,7 @@ Route::controller(PagesController::class)->group(function() {
     Route::get('/realizacje', 'realizations')->name('realizations');
     Route::get('/realizacje/{realization:slug}', 'realization')->name('realization');
     Route::get('/polityka-prywatnosci', 'privacy')->name('privacy');
+    Route::get('/kontakt', 'contact')->name('contact');
 });
 
 Route::controller(ContactController::class)->group(function() {

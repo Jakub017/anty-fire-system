@@ -12,7 +12,7 @@ class PagesController extends Controller
     public function home() {
         $questions = Faq::latest()->get();
         $services = Service::orderBy('created_at', 'asc')->get();
-        $realizations = Realization::orderBy('created_at', 'asc')->get();
+        $realizations = Realization::orderBy('created_at', 'asc')->limit(4)->get();
         return view('home', compact('questions', 'services', 'realizations'));
     }
     
@@ -31,5 +31,9 @@ class PagesController extends Controller
 
     public function privacy() {
         return view('privacy');
+    }
+
+    public function contact() {
+        return view('contact');
     }
 }
