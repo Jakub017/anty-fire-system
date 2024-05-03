@@ -21,7 +21,7 @@
                    <a href="{{route('home')}}#faq" class="nav__link nav__link--faq">FAQ</a>
                </li>
                <li class="nav__item">
-                   <a href="{{route('home')}}#kontakt" class="nav__link nav__link--last nav__link--contact">Kontakt z
+                   <a href="{{route('contact')}}" class="nav__link nav__link--last nav__link--contact">Kontakt z
                        nami</a>
                </li>
            </ul>
@@ -60,7 +60,7 @@
                        <a href="{{route('home')}}#faq" class="mobile-nav__link mobile-nav__link--faq">FAQ</a>
                    </li>
                    <li class="mobile-nav__item">
-                       <a href="{{route('home')}}#kontakt"
+                       <a href="{{route('contact')}}"
                            class="mobile-nav__link mobile-nav__link--last mobile-nav__link--contact">Kontakt z nami</a>
                    </li>
                </ul>

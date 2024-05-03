@@ -12,17 +12,12 @@ class PagesController extends Controller
     public function home() {
         $questions = Faq::latest()->get();
         $services = Service::orderBy('created_at', 'asc')->get();
-        $realizations = Realization::orderBy('created_at', 'asc')->limit(4)->get();
+        $realizations = Realization::orderBy('created_at', 'asc')->get();
         return view('home', compact('questions', 'services', 'realizations'));
     }
     
     public function service(Service $service) {
         return view('service', compact('service'));
-    }
-
-    public function realizations() {
-        $realizations = Realization::orderBy('created_at', 'asc')->get();
-        return view('realizations', compact('realizations'));
     }
 
     public function realization(Realization $realization) {

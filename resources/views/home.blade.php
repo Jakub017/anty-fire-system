@@ -6,6 +6,7 @@
 <div class="hero">
     <div class="hero__wrapper">
         <div class="hero__text">
+            <h6 class="hero__title">fprotect</h6>
             <h1 class="hero__heading">{{ setting('strona.hero_title') }}</h1>
             <p class="hero__description">{{ setting('strona.hero_text') }}</p>
             <div class="hero__buttons">
@@ -15,6 +16,9 @@
 
         </div>
     </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="hero__path" viewBox="0 0 1000 100" preserveAspectRatio="none">
+        <path d="M737.9,94.7L0,0v100h1000V0L737.9,94.7z" fill="#fff"></path>
+    </svg>
 </div>
 
 <div id="o-nas" class="section about">
@@ -24,14 +28,19 @@
             <h1 class="section__heading">Twoje Bezpieczeństwo i Ochrona -
                 Nasza Misja. <span class="section__underline">Jesteśmy Ekspertami</span>
             </h1>
-            <p class="about__description">Jesteśmy ekspertami w dziedzinie zabezpieczeń budynków i systemów
-                przeciwpożarowych, z wieloletnim doświadczeniem na rynku. Nasza firma oferuje kompleksowe rozwiązania,
-                mające na celu ochronę życia i mienia przed niespodziewanymi sytuacjami.</p>
-            <p class="about__description">Specjalizujemy się w
-                projektowaniu, instalacji i serwisowaniu systemów przeciwpożarowych, systemów alarmowych oraz
-                zabezpieczeń budynków. Nasza misja to zapewnienie najwyższego poziomu bezpieczeństwa, zgodnie z
-                najnowszymi standardami i regulacjami. Pracujemy z pasją i zaangażowaniem, aby każdy nasz klient czuł
-                się bezpiecznie i pewnie.</p>
+            <p class="about__description">Jesteśmy firmą wyspecjalizowaną w ochronie przeciwpożarowej obiektów.
+                Świadczymy usługi kompleksowe i zawsze indywidualnie dostosowane do Państwa oczekiwań. <b>Naszą domeną
+                    są
+                    zagadnienia nietypowe, problematyczne, dla których zawsze staramy się znaleźć najlepsze rozwiązanie
+                    techniczne, poparte odpowiednią dokumentacją, a co niemniej ważne - możliwe najbardziej korzystne
+                    ekonomicznie.</b></p>
+            <p class="about__description">Współpracujemy z największymi dostawcami materiałów ogniochronnych, ściśle
+                współpracujemy z szeregiem rzeczoznawców ds. zabezpieczeń ppoż., jesteśmy członkami Stowarzyszenia
+                Inżynierów i Techników Pożarnictwa.
+                Zatrudniamy doświadczoną kadrę inżynieryjno-techniczną, nieustannie pogłębiającą swoją wiedzę dzięki
+                specjalistycznym szkoleniom, w których cyklicznie uczestniczymy. Oferujemy pełny nadzór nad ochroną
+                przeciwpożarową obiektów projektowanych, nowobudowanych (przed, w trakcie budowy jak i w późniejszej
+                eksploatacji) oraz istniejących (również zabytkowych).</p>
             <!-- <a class="about__link" href="#">Dowiedz się więcej</a> -->
         </div>
         <img class="about__image" src="{{asset('img/tlo2.jpg')}}" alt="">
@@ -43,12 +52,14 @@
         <h2 class="section__subheading services__subheading">Usługi</h2>
         <h1 class="section__heading services__subheading">Obszary naszej działalności</h1>
         <div class="services__items">
-            @foreach($services as $service)
+            @foreach($services as $index => $service)
             <div class="services__item">
                 <div class="services__body">
-                    <img class="services__image" src="{{Voyager::image($service->image)}}">
+                    <h3 class="services__count">0{{ $index+1 }}</h3>
                     <h3 class="services__title">{{ $service->name }}</h3>
                     <p class="services__description">{{ $service->excerpt }}</p>
+                    <a href="{{route('service', $service->slug)}}" class="services__link">Dowiedz się więcej <i
+                            class="fa-solid fa-arrow-right services__arrow"></i></a>
                 </div>
             </div>
             @endforeach
@@ -57,27 +68,27 @@
 </div>
 
 <div id="realizacje" class="section portfolio">
-    <div class="portfolio__wrapper">
+    <div class="swiper portfolio__wrapper">
         <div class="portfolio__intro">
             <div class="portfolio__headings">
                 <h2 class="section__subheading portfolio__subheading">realizacje</h2>
-                <h1 class="section__heading portfolio__subheading">Nasze portfolio</h1>
+                <h1 class="section__heading portfolio__subheading">Kategorie naszych realizacji</h1>
             </div>
-            <a href="{{route('realizations')}}" class="portfolio__all">Wszystkie realizacje</a>
         </div>
-        <div class="portfolio__items">
+
+        <div class="swiper-wrapper portfolio__items">
             @foreach($realizations as $realization)
-            <div class="portfolio__item">
-                <img src="{{Voyager::image($realization->main_image)}}" alt="" class="portfolio__image">
-                <div class="portfolio__info">
+            <div class="swiper-slide portfolio__item">
+                <img src="{{Storage::url($realization->main_image)}}" alt="" class="portfolio__image">
+                <div class="portfolio__text">
                     <h3 class="portfolio__name">{{ $realization->name }}</h3>
                     <p class="portfolio__description">{{ $realization->excerpt }}</p>
-                    <a href="{{route('realization', $realization->slug)}}" class="portfolio__link">Szczególy
-                        realizacji</a>
+                    <a href="{{route('realization', $realization->slug)}}" class="portfolio__link">Zobacz realizacje</a>
                 </div>
             </div>
             @endforeach
         </div>
+        <div class="swiper-pagination portfolio__pagination"></div>
     </div>
 </div>
 
@@ -109,8 +120,9 @@
             <h2 class="section__subheading contact__subheading">kontakt</h2>
             <h1 class="section__heading contact__heading">Napisz do nas. Służymy pomocą!</h1>
 
-            <p class="contact__description">Czekamy na wiadomość od Ciebie! Nasz doświadczony zespół jest gotowy
-                odpowiedzieć na Twoje pytania i udzielić więcej informacji na temat naszej oferty.</p>
+            <p class="contact__description">Z przyjemnością odpowiemy na każde Państwa zapytanie, wyliczymy zakres
+                robót, opracujemy kalkulację ofertową. Wykonamy to sprawnie, bez zbędnej zwłoki. Podobnie jak każde,
+                zlecone nam zadanie.</p>
             <div class="contact__links">
                 <a href="mailto:{{ setting('kontakt.email') }}" class="contact__link"><i
                         class="fa-solid fa-envelope contact__icon"></i>
@@ -120,7 +132,7 @@
                     {{ setting('kontakt.phone') }}</a>
             </div>
         </div>
-        <form method="POST" action="{{route('contact.send')}}#contact" class="contact__form">
+        <form method="POST" action="{{route('contact.send')}}#kontakt" class="contact__form">
             @csrf
 
             <div class="contact__input-group">
@@ -173,5 +185,33 @@
 @endsection
 
 @section('scripts')
-<script src="{{asset('js/scripts.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+<script>
+    const swiper = new Swiper(".swiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            640: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 4,
+            },
+        },
+    });
+
+</script>
 @endsection
